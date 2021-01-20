@@ -22,6 +22,12 @@ pipeline{
                  sh 'docker build -t myimg:1 .'
              }
          }
+         stage('Push Docker Image'){
+             steps{
+                 sh ' $(aws ecr get-login --no-include-email)'
+                 sh 'docker tag myapp:1 559584465773.dkr.ecr.ap-south-1.amazonaws.com/myapp:1'
+             }
+         }
      }
 
 }
