@@ -16,6 +16,12 @@ pipeline{
                  sh 'mvn install'
              }
          }
+         stage('Docker Build Image'){
+             steps{
+                 sh 'docker --version'
+                 sh 'docker build -t myimg:1 .'
+             }
+         }
      }
 
 }
