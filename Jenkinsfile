@@ -29,6 +29,13 @@ pipeline{
                  sh 'docker push 559584465773.dkr.ecr.ap-south-1.amazonaws.com/myapp:1'
              }
          }
+         stage ('deploying to EKS') {
+           steps { 
+                echo "deploying imges to EKS"
+                sh 'kubectl apply -f deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
+           }
+         }  
      }
 
 }
