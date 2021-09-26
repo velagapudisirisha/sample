@@ -33,6 +33,13 @@ pipeline{
 	            }
 	          }
 	        }
+         stage('docker build'){
+             steps{
+                 echo 'docker build'
+                 sh 'docker --version'
+                 sh 'docker build -t myapp:1 .'
+             }
+         }
      }
 
 }
