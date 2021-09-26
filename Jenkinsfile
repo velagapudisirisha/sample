@@ -47,6 +47,9 @@ pipeline{
                  sh 'docker push 899197664719.dkr.ecr.us-east-1.amazonaws.com/myapp:latest'
              }
          }
+         stage('ansible'){
+             sh 'ansible all_slaves -m ping'
+         }
      }
 
 }
