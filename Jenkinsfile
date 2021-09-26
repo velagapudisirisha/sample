@@ -10,6 +10,13 @@ pipeline{
                  git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
              }
          } 
+         stage('mvn build'){
+             steps{
+                 echo 'mvn clean and install step is executing'
+                 sh 'mvn clean'
+                 sh 'mvn install'
+             }
+         }
      }
 
 }
