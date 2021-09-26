@@ -50,6 +50,9 @@ pipeline{
          stage('ansible'){
              steps{
                 sh 'ansible all_slaves -m ping'
+                sh '$(aws ecr get-login --no-include-email)'
+                sh 'ansible-playbook ansibleplaybook.yaml --syntax-check'
+                sh 'ansible-playbook ansibleplaybook.yaml'
              }
          }
      }
