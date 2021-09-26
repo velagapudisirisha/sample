@@ -1,0 +1,9 @@
+- name: Pipeline process
+  hosts: all_slaves
+   
+  tasks:
+    - name: pull docker images from AWS ECR
+      shell: docker pull 899197664719.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
+
+    - name: start docker container
+      shell: docker run --name con1 -itd -p 8080:8080 899197664719.dkr.ecr.us-east-1.amazonaws.com/myapp:latest
