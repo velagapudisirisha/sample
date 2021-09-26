@@ -24,7 +24,7 @@ pipeline{
                      def uploadSpec = """{
                        "files": [
                             {
-                              "pattern": "/var/lib/jenkins/.m2/repository/com/srish/mvn-hello-world/1.2/mvn-hello-world-1.2.war",
+                              "pattern": "/var/lib/jenkins/.m2/repository/com/srish/mvn-hello-world/1.2/mvn-hello-world-1.3.war",
                               "target": "TestRepo/"
                             }
                                 ]
