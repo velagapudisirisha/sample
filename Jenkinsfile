@@ -48,7 +48,9 @@ pipeline{
              }
          }
          stage('ansible'){
-             sh 'ansible all_slaves -m ping'
+             steps{
+                sh 'ansible all_slaves -m ping'
+             }
          }
      }
 
