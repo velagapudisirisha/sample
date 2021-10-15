@@ -52,7 +52,8 @@ pipeline{
                 steps{
                     echo 'de'
                     sh 'ansible --version'
-                    sh 'ansible-playbook ansibleplaybook.
+                    sh 'ansible-playbook ansibleplaybook.yaml --syntax-check'
+                    sh 'ansible-playbook ansibleplaybook.yaml'
                 }
             }
     }
