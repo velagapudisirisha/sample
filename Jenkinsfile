@@ -34,6 +34,10 @@ pipeline{
 	            }
 	          }
 	        }
+            stage('docker build'){
+                echo 'docker image build'
+                sh 'docker build -t app:latest .'
+            }
     }
      
 
