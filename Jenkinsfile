@@ -48,6 +48,13 @@ pipeline{
                     sh 'docker push 899197664719.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
                 }
             }
+            stage('ansible'){
+                steps{
+                    echo 'de'
+                    sh 'ansible --version'
+                    sh 'ansible-playbook ansibleplaybook.
+                }
+            }
     }
      
 
