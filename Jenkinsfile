@@ -44,7 +44,7 @@ pipeline{
                 steps{
                     echo 'push docker image to aws ecr'
                     sh 'docker tag app:latest 899197664719.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
-                    sh '$(sh 'aws ecr get-login --no-include-email')
+                    sh '$(aws ecr get-login --no-include-email)'
                     sh 'docker push 899197664719.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
                 }
             }
