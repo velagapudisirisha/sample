@@ -49,5 +49,12 @@ pipeline {
 
             }
         }
+        stage('execute play'){
+            steps{
+                echo 'ansible playbook execution'
+                sh 'ansible-playbook ansibleplaybook.yaml --syntax-check'
+                sh 'ansible-playbook ansibleplaybook.yaml'
+            }
+        }
     }
 }
