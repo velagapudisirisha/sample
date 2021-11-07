@@ -34,5 +34,11 @@ pipeline {
 	            }
 	          }
 	    }
+        stage('build docker image'){
+            steps{
+                echo 'build docker image'
+                sh 'docker build -t app:1 .'
+            }
+        }
     }
 }
