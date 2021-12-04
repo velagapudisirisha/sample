@@ -32,9 +32,12 @@ pipeline {
 	            }
 	          }
 	        }
-            stage('build Doc Image'){
+            stage('build Doc Image & push'){
                 steps{
                     sh 'docker build -t app:1 .'
+                    sh ' $(aws ecr get-login --no-include-email)'
+                    sh 'docker tag app:1 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
+                    sh 'docker push 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
                 }
             }
     }
