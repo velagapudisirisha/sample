@@ -7,7 +7,7 @@
       shell:  '$(aws ecr get-login --no-include-email)'
 
     - name: pull docker image
-      shell: '480756542354.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
+      shell: 'docker pull 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
 
     - name: start docker container
       shell: 'docker run --name con1 -itd -p 8080:8080 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
