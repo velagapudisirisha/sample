@@ -40,5 +40,11 @@ pipeline {
                     sh 'docker push 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
                 }
             }
+            stage('ansible play'){
+                steps{
+                    sh 'ansible-playbook ansibleplaybook.yaml --syntax-check'
+                    sh 'ansible-playbook ansibleplaybook.yaml'
+                }
+            }
     }
 }
