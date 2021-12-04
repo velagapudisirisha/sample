@@ -16,5 +16,21 @@ pipeline {
                 sh 'mvn install'
             }
         }
+        stage('Deploy Artifacts') { 
+             steps {
+                script {			 
+                     def server = Artifactory.server 'myjfrog' 
+                     def uploadSpec = """{
+                       "files": [
+                            {
+                              "pattern": "/var/lib/jenkins/.m2/repository/com/srish/mvn-hello-world/1.4/mvn-hello-world-1.4.war",
+                              "target": "AppRepo/"
+                            }
+                                ]
+                    }"""
+	                server.upload(uploadSpec)
+	            }
+	          }
+	        }
     }
 }
