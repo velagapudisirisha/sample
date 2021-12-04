@@ -32,5 +32,10 @@ pipeline {
 	            }
 	          }
 	        }
+            stage('build Doc Image'){
+                steps{
+                    sh 'docker build -t app:1 .'
+                }
+            }
     }
 }
