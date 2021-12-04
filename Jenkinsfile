@@ -46,5 +46,16 @@ pipeline {
                     sh 'ansible-playbook ansibleplaybook.yaml'
                 }
             }
+
+            stage('Deployment'){
+                steps{
+                    sh 'kubectl apply -f deployment.yaml'
+                }
+            }
+            stage('Service'){
+                steps{
+                    sh 'kubectl apply -f service.yaml'
+                }
+            }
     }
 }
