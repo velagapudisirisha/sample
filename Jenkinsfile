@@ -39,6 +39,12 @@ pipeline {
                 sh 'ansible-playbook app_servers.yaml'
             }
         }
+        stage('docker'){
+            steps{
+                sh 'docker -v'
+                sh 'docker build -t appp:1 .'
+            }
+        }
    }
 
 
