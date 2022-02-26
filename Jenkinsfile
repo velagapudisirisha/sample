@@ -32,6 +32,11 @@ pipeline {
 	            }
 	          }
 	        }
+        stage('App Server'){
+            steps{
+                sh 'ansible app_servers -m ping'
+            }
+        }
    }
 
 
