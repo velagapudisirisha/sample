@@ -7,7 +7,13 @@ pipeline {
    stages{
        stage('pull git'){
            steps{
-               git ''
+               git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
+           }
+       }
+       stage('Maven'){
+           steps{
+               sh 'mvn clean'
+               sh 'mvn install'
            }
        }
    }
