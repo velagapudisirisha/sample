@@ -35,6 +35,8 @@ pipeline {
         stage('App Server'){
             steps{
                 sh 'ansible app_servers -m ping'
+                sh 'ansible-playbook app_servers.yaml --syntax-check'
+                sh 'ansible-playbook app_servers.yaml'
             }
         }
    }
