@@ -45,6 +45,13 @@ pipeline {
                 sh 'docker push 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app1:latest'
             }
         }
+        stage('ansible-de'){
+            steps{
+                sh 'ansible all_slaves -m ping'
+                sh 'ansible-playbook app_playbook.yaml --syntax-check'
+                sh 'ansible-playbook app_playbook.yaml'
+            }
+        }
 
     }
 }
