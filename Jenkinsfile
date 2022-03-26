@@ -54,6 +54,7 @@ pipeline {
         }
         stage('eks'){
             steps{
+                sh 'kubectl version --short --client'
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
             }
