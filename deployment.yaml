@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitlab-1
+spec:
+  selector:
+    matchLabels:
+      app: gitlab-1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gitlab-1
+    spec:
+      containers:
+        - name: gitlab-1
+          image: 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app1:latest
+          ports:
+            - containerPort: 8080
