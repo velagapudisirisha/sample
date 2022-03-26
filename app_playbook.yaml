@@ -1,0 +1,23 @@
+---
+- name: playbook
+  hosts: all_slaves
+
+  tasks:
+    - name: install docker engine
+      yum:
+        name: docker
+        state: installed
+    
+    - name: start docker service
+      service:
+        name: docker
+        state: started
+    
+    - name: login to AWS ECR
+      shell: $(aws ecr get-login --no-include-email)
+    
+    - name: pull docker images
+      shell: docker pull 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app1:latest
+    
+    - name: start docker container
+      shell: docker run --name=con1 -itd -p 8080:8080 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app1:latest
