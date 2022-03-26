@@ -40,6 +40,9 @@ pipeline {
                 echo 'docker image build, push to ecr'
                 sh 'docker -v'
                 sh 'docker build -t app:1 .'
+                sh '$(aws ecr get-login --no-include-email)'
+                sh 'docker tag app1:1 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app1:latest'
+                sh 'docker push 480756542354.dkr.ecr.ap-south-1.amazonaws.com/app1:latest'
             }
         }
 
