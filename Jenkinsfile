@@ -39,7 +39,7 @@ pipeline {
             steps{
                 echo 'docker image build, push to ecr'
                 sh 'docker -v'
-                sh 'docker build -t app:1 .
+                sh 'docker build -t app:1 .'
             }
         }
 
