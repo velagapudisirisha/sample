@@ -1,0 +1,24 @@
+pipeline {
+    tools {
+        jdk 'jdk1.8'
+        mvn 'maven3'
+    }
+    stages {
+        stage("pull code git"){
+            steps{
+                echo "pull code from git"
+                git 
+            }
+        }
+        stage("build maven"){
+            steps{
+                echo "Build App using Maven" 
+            }
+        }
+        stage("artifactory push"){
+            steps{
+                echo "Push Artifactry to JFROG"
+            }
+        }
+    }
+}
