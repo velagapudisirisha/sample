@@ -52,5 +52,12 @@ pipeline {
                 sh "docker push 303627538160.dkr.ecr.ap-south-1.amazonaws.com/app:1"
             }
         }
+        stage("Docker Eng"){
+            steps{
+                echo "DOcker Eng"
+                sh "ansible-playbook docker_playbook.yaml --syntax-check"
+                sh "ansible-playbook docker_playbook.yaml"
+            }            
+        }
     }
 }
