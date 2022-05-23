@@ -4,7 +4,7 @@
 
   tasks:
     - name: connect to Docker ENg & login to AWS ECR
-      shell: '$(aws ecr get-login --no-include-email)'
+      shell: "$(aws ecr get-login --no-include-email)"
 
     - name: pull docker image
       shell: docker pull 303627538160.dkr.ecr.ap-south-1.amazonaws.com/app:1
