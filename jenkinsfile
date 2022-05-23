@@ -7,12 +7,14 @@ pipeline {
         stage("pull code git"){
             steps{
                 echo "pull code from git"
-                git 
+                git "https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git"
             }
         }
         stage("build maven"){
             steps{
                 echo "Build App using Maven" 
+                sh "mvn clean"
+                sh "mvn install"
             }
         }
         stage("artifactory push"){
