@@ -1,0 +1,32 @@
+---
+- name: App Server playbook
+  hosts: app_server
+
+  tasks:
+    - name: Install java
+      yum:
+        name: java
+        state: installed
+    
+    - name: Install app server
+      yum:
+        name: tomcat
+        state: installed
+    
+    - name: Create ROOT dir
+      file:
+        path: /usr/share/tomcat/webapps/ROOT/
+        mode: 0777
+        owner: root
+        group: root
+        state: directory
+    
+    - name: Start tomcat app servuice
+      service:
+        name: tomcat
+        state: started
+
+    - name: Deploy artifactory
+      copy:
+        src: target/mvn-hello-world.war
+        dest: /usr/share/tomcat/webapps/
