@@ -43,5 +43,11 @@ pipeline {
                 sh "ansible-playbook app_playbook.yaml"
             }
         }
+        stage("docker imaage"){
+            steps{
+                echo "docker image build"
+                sh "docker build -t app:1 ."
+            }
+        }
     }
 }
