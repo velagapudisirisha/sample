@@ -40,6 +40,11 @@ pipeline {
            sh 'ansible-playbook ansible_playbook.yaml'
          }
        }
+       stage('docker'){
+         steps{
+           sh 'docker build -t app:1 .'
+         }
+       }
 
 
 
