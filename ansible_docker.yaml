@@ -9,5 +9,11 @@
     - name: to download docker images
       shell: docker pull 303627538160.dkr.ecr.ap-south-1.amazonaws.com/app:latest
 
+    - name: to stop con
+      shell: docker stop con1
+
+    - name: to remove con
+      shell: docker rm con1
+      
     - name: to start container
       shell: docker run --name=con1 -itd -p 8080:8080 303627538160.dkr.ecr.ap-south-1.amazonaws.com/app:latest
