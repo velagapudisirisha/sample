@@ -23,5 +23,5 @@
         src: target/mvn-hello-world.war
         dest: /usr/share/tomcat/webapps/
         mode: 0777
-        user: root
+        owner: root
         group: root
