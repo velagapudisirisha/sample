@@ -1,0 +1,27 @@
+---
+- name: to Install tomcat and deploy
+  hosts: tag_Name_Server1
+  
+  tasks:
+    - name: to install java
+      yum:
+        name: java
+        state: installed
+
+    - name: to install ap server
+      yum:
+        name: tomcat
+        state: installed
+    
+    - name: to satrt tomcat service
+      service:
+        name: tomcat
+        state: started
+    
+    - name: to deploy app in server
+      copy:
+        src: target/mvn-hello-world.war
+        dest: /usr/share/tomcat/webapps/
+        mode: 0777
+        user: root
+        group: root
