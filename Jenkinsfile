@@ -8,7 +8,7 @@ pipeline {
         stage('git pull'){
            steps{
              echo "GIT SRC code pull"
-             git ''
+             git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
            }
         }
          stage('Maven build'){
