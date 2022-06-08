@@ -34,6 +34,12 @@ pipeline {
 	        }
 	       }
 	     }
+       stage ('ansible - app'){
+         steps{
+           sh 'ansible-playbook ansible_playbook.yaml --syntax-check'
+           sh 'ansible-playbook ansible_playbook.yaml'
+         }
+       }
 
 
 
