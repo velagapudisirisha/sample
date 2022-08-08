@@ -51,5 +51,12 @@ pipeline {
                 sh 'docker push 018479218481.dkr.ecr.ap-south-1.amazonaws.com/app:1'
             }
         }
+        stage('tomcat deploy'){
+            steps{
+                echo "deploy app into tomcat"
+                sh 'ansible-playbook ansible_tomcat.yaml --syntax-check'
+                sh 'ansible-playbook ansible_tomcat.yaml'
+            }
+        }
     }
 }
