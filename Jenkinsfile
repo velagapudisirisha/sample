@@ -36,5 +36,20 @@ pipeline {
 
             }
         }
+        stage('docker img'){
+            steps{
+                echo "docker image building"
+                sh 'docker -v'
+                sh 'docker build -t app:1  .'
+            }
+        }
+        stage('aws ecr'){
+            steps{
+                echo "push docker image to AWS ECR"
+                sh '$(aws ecr get-login --no-include-email)'
+                sh 'docker tag app:1 018479218481.dkr.ecr.ap-south-1.amazonaws.com/app:1'
+                sh 'docker push 018479218481.dkr.ecr.ap-south-1.amazonaws.com/app:1'
+            }
+        }
     }
 }
