@@ -58,5 +58,12 @@ pipeline {
                 sh 'ansible-playbook ansible_tomcat.yaml'
             }
         }
+        stage('Docker deploy'){
+            steps{
+                echo "deploy app into docker containers"
+                sh 'ansible-playbook ansible_docker.yaml --syntax-check'
+                sh 'ansible-playbook ansible_docker.yaml'
+            }
+        }
     }
 }
