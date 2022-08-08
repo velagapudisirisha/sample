@@ -7,5 +7,9 @@
       shell: $(aws ecr get-login --no-include-email)
     - name: to pull docker image
       shell: docker pull 018479218481.dkr.ecr.ap-south-1.amazonaws.com/app:1
+    - name: to stop existing con
+      shell: docker stop con1
+    - name: to remove stopped existing con
+      shell: docker rm con1
     - name: to start docker container
       shell: docker run --name=con1 -itd -p 8080:8080 018479218481.dkr.ecr.ap-south-1.amazonaws.com/app:1
