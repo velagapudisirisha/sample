@@ -8,7 +8,7 @@ pipeline {
        stage('git'){
            steps{
                echo 'pulling code from git repos'
-               git ''
+               git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
            }
        }
    }
