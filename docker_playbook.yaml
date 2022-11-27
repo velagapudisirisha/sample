@@ -8,6 +8,12 @@
     
     - name: Pull image from AWS ECR
       shell: 'docker pull 065792359805.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
+    
+    - name: stop existing container
+      shell: 'docker stop con1'
+
+    - name: remove existing container
+      shell: 'docker rm con1'
 
     - name: start docker engine
       shell: docker run --name con1 -itd -p 8080:8080 065792359805.dkr.ecr.ap-south-1.amazonaws.com/app:latest
