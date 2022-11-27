@@ -35,6 +35,16 @@ pipeline {
                sh 'docker push 065792359805.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
            }
        }
+
+        stage('DE-con'){
+           steps{
+               echo 'Pull odcker image and start docker container'
+               sh 'docker -v'
+               sh '$(aws ecr get-login --no-include-email)'
+               sh 'ansible-playbook dockerdocker tag app:1 065792359805.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
+               sh 'docker push 065792359805.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
+           }
+       }
    }
 
 }
