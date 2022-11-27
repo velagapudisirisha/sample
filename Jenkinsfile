@@ -30,6 +30,8 @@ pipeline {
                echo 'Building docker image and push to AWS ECR'
                sh 'docker -v'
                sh 'docker build -t app:1 .'
+               sh 'docker tag app:1 065792359805.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
+               sh 'docker push 065792359805.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
            }
        }
    }
