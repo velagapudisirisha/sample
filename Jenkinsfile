@@ -18,6 +18,13 @@ pipeline {
                sh 'mvn install'
            }
        }
+       stage('Ansible-App'){
+           steps{
+               echo 'Application servers to deploy'
+               sh 'ansible-playbook ansible_playbook.yaml --syntax-check'
+               sh 'ansible-playbook ansible_playbook.yaml'
+           }
+       }
    }
 
 }
