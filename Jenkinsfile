@@ -25,6 +25,13 @@ pipeline {
                sh 'ansible-playbook ansible_playbook.yaml'
            }
        }
+       stage('Docker-image'){
+           steps{
+               echo 'Building docker image and push to AWS ECR'
+               sh 'docker -v'
+               sh 'docker build -t app:1 .'
+           }
+       }
    }
 
 }
