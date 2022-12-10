@@ -18,6 +18,13 @@ pipeline {
                 sh 'mvn install'
             }
         }
+        stage('tomcat'){
+            steps {
+                echo 'this stage is for deploying app into tomcat'
+                sh 'ansible-playbook tomcat
+                sh 'mvn install'
+            }
+        }
     }
     
 }
