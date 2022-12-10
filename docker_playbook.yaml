@@ -1,0 +1,13 @@
+---
+- name: to pull image and start container
+  hosts: docker_ser
+
+  tasks:
+    - name: login to AWS ECR
+      shell: $(aws ecr get-login --no-include-email)
+
+    - name: Pull docker image
+      shell: docker pull 221014743649.dkr.ecr.ap-south-1.amazonaws.com/app:latest
+
+    - name: start docker container
+      shell: docker run --name con1 -itd -p 8080:8080 221014743649.dkr.ecr.ap-south-1.amazonaws.com/app:latest
