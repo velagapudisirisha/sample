@@ -25,6 +25,12 @@ pipeline {
                 sh 'ansible-playbook tomcat_playbook.yaml'
             }
         }
+        stage('docker'){
+            steps {
+                sh 'docker build -t app:1 .'
+                
+            }
+        }
     }
     
 }
