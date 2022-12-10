@@ -31,7 +31,8 @@ pipeline {
                 sh '$(aws ecr get-login --no-include-email)'
                 sh 'docker tag app:1 221014743649.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
                 sh 'docker push 221014743649.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
-                
+                sh 'ansible-playbook docker_playbook.yaml --syntax-check'
+                sh 'ansible-playbook docker_playbook.yaml'   
             }
         }
     }
