@@ -1,0 +1,22 @@
+---
+- name: this playbook is for installing tomcat service
+  hosts: app_servers
+
+  tasks:
+    - name: to install tomcat service
+      yum:
+        name: tomcat
+        state: installed
+    
+    - name: to start tomcat service
+      service:
+        name: tomcat
+        state: started
+
+    - name: to deploy app
+      copy:
+        src: target/mvn-hello-world.war
+        dest: /usr/share/tomcat/webapps/
+        mode: 0777
+        group: root
+        owner: root
