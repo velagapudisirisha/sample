@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: 221014743649.dkr.ecr.ap-south-1.amazonaws.com/app:latest
+          image: 592300148445.dkr.ecr.ap-south-1.amazonaws.com/app:latest
           ports:
             - containerPort: 8080
