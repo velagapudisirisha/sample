@@ -1,6 +1,6 @@
 ---
 - name: to pull image and start container
-  hosts: docker_ser
+  hosts: docker_slaves
 
   tasks:
     - name: login to AWS ECR
