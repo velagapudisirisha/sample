@@ -35,6 +35,17 @@ pipeline {
                 sh 'ansible-playbook docker_playbook.yaml'
             }
         }
+        stage('K8S'){
+            steps {
+                sh 'kubectl version --short --client'
+                sh 'kubectl get nodes'
+                sh 'kubectl apply -f deployment.yaml'
+                sh 'kubectl apply -f service.yaml'
+                sh 'kubectl get deployments'
+                sh 'kubectl get pods'
+                sh 'kubectl get services'   
+            }
+        }
     }
     
 }
