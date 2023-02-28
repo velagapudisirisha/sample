@@ -1,6 +1,6 @@
 ---
 - name: this playbook is for installing tomcat service
-  hosts: slaves
+  hosts: all_slaves
 
   tasks:
     - name: to install tomcat service
