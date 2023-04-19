@@ -12,6 +12,13 @@ pipeline {
                 git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
             }
         }
+        stage('Maven'){
+            steps {
+                echo 'To clean and generate artifact by using Maven'
+                sh 'mvn clean'
+                sh 'mvn install'
+            }
+        }
         stage('test'){
             steps {
                 echo 'test service'
