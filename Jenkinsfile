@@ -8,7 +8,8 @@ pipeline {
     stages {
         stage('git'){
             steps {
-                echo 'Pull SRC code from GIT Repo Kubernetes_WE'
+                echo 'Pull SRC code from GIT Repo Kubernetes_WE --> https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
+                git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
             }
         }
         stage('test'){
