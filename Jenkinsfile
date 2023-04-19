@@ -6,6 +6,11 @@ pipeline {
     }
 
     stages {
+        stage('git'){
+            steps {
+                echo 'Pull SRC code from GIT Repo Kubernetes_WE'
+            }
+        }
         stage('test'){
             steps {
                 echo 'test service'
