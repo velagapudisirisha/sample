@@ -26,6 +26,12 @@ pipeline {
                 sh 'ansible-playbook tomcat_playbook.yaml'
             }
         }
+        stage('Docker'){
+            steps {
+                echo 'Ti Build DOcker image & Push to AWS ECR'
+                sh 'docker build -t app:1 .'
+            }
+        }
         stage('test'){
             steps {
                 echo 'test service'
