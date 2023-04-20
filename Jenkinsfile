@@ -35,9 +35,11 @@ pipeline {
                 sh 'docker push 836768678848.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
             }
         }
-        stage('test'){
+        stage('Dock Con'){
             steps {
-                echo 'test service'
+                echo 'to connect DE and operations'
+                sh 'ansible-playbook docker_playbook.yaml --syntax-check'
+                sh 'ansible-playbook docker_playbook.yaml'
             }
         }
     }
