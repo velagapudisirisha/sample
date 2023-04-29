@@ -5,6 +5,12 @@ pipeline {
     maven 'maven3'
   }
   stages {
+    stage('GIT'){
+          steps{
+              echo "to pull latst code"
+              git ''
+          }
+      }
       stage('test'){
           steps{
               echo "test stagee"
