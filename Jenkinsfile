@@ -22,8 +22,7 @@ pipeline {
           steps{
               echo "to Install and deploy app into tom"
               sh 'ansible-playbook tomcat_playbook.yaml --syntax-check'
-              sh 'ansible-playbook tomcat_playbook.yaml'
-              
+              sh 'ansible-playbook tomcat_playbook.yaml'              
           }
       }
       stage('Docker'){
@@ -33,14 +32,11 @@ pipeline {
               sh 'docker tag app:1 836768678848.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
               sh '$(aws ecr get-login --no-include-email)'
               sh 'docker push 836768678848.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
-              
+              sh 'ansible-playbook docker_playbook.yaml --syntax-check'
+               sh 'ansible-playbook docker_playbook.yaml'              
           }
       }
-      stage('test'){
-          steps{
-              echo "test stagee"
-          }
-      }
+      
   }
 
 
