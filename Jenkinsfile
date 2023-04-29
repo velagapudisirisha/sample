@@ -26,6 +26,14 @@ pipeline {
               
           }
       }
+      stage('Docker'){
+          steps{
+              echo "to Build Image on Docker file"
+              sh 'docker build -t app:1 .'
+              
+              
+          }
+      }
       stage('test'){
           steps{
               echo "test stagee"
