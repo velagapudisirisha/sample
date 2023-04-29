@@ -8,7 +8,14 @@ pipeline {
     stage('GIT'){
           steps{
               echo "to pull latst code"
-              git ''
+              git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
+          }
+      }
+       stage('Maven'){
+          steps{
+              echo "to Build Artifact"
+              sh 'mvn clean'
+              sh 'mvn install'
           }
       }
       stage('test'){
