@@ -20,5 +20,11 @@
     - name: to pull docker image rom AWS ECR
       shell: docker pull 836768678848.dkr.ecr.ap-south-1.amazonaws.com/app:latest
 
+    - name: to stop if any running con with con1 name
+      shell:  docker stop con1
+
+    - name: to remove if any running con with con1 name
+      shell:  docker rm con1
+
     - name: to start docker con
       shell: docker run --name con1 -itd -p 8080:8080 836768678848.dkr.ecr.ap-south-1.amazonaws.com/app:latest
