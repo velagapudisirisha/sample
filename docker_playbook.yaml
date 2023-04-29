@@ -1,6 +1,6 @@
 ---
 - name: docker work purpose
-  hosts: docker
+  hosts: tag_Name_DE
   become: yes
   become_method: sudo
   tasks:
