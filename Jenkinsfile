@@ -36,6 +36,13 @@ pipeline {
                sh 'ansible-playbook docker_playbook.yaml'              
           }
       }
+      stage('K8S'){
+          steps{
+              echo "to apply deployment and service to cluster"
+              sh 'kubectl apply -f deployment.yaml'
+              sh 'kubectl apply -f service.yaml'             
+          }
+      }
       
   }
 
