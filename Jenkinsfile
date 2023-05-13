@@ -7,6 +7,12 @@ pipeline {
               git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
           }
       }
+      stage('Terraform'){
+          steps{
+              echo "to login to AWS Provider"
+              sh '$(aws ecr get-login --no-include-email)'
+          }
+      }
        
       
       
