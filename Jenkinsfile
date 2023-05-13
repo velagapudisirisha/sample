@@ -11,6 +11,8 @@ pipeline {
           steps{
               echo "to login to AWS Provider"
               sh 'aws s3 ls'
+              sh 'terraform init'
+              sh 'terraform apply -auto-approve'
           }
       }
        
