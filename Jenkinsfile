@@ -10,7 +10,7 @@ pipeline {
       stage('Terraform'){
           steps{
               echo "to login to AWS Provider"
-              sh '$(aws ecr get-login --no-include-email)'
+              sh 'aws s3 ls'
           }
       }
        
