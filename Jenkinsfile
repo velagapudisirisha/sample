@@ -1,9 +1,5 @@
 pipeline {
   agent 'any'
-  tools {
-    jdk 'jdk1.8'
-    maven 'maven3'
-  }
   stages {
     stage('GIT'){
           steps{
@@ -11,50 +7,10 @@ pipeline {
               git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
           }
       }
-       stage('Maven'){
-          steps{
-              echo "to Build Artifact"
-              sh 'mvn clean'
-              sh 'mvn install'
-          }
-      }
-       stage('tomcat'){
-          steps{
-              script {
-                  if("${select_env}" == 'Tomcat'){
-                       echo "to Install and deploy app into tom"
-                      sh 'ansible-playbook tomcat_playbook.yaml --syntax-check'
-                      sh 'ansible-playbook tomcat_playbook.yaml'
-                  }
-              }                       
-          }
-      }
-      stage('Docker'){
-          steps{
-                echo "to Build Image on Docker file"
-                sh 'docker build -t app:1 .'
-                sh 'docker tag app:1 836768678848.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
-                sh '$(aws ecr get-login --no-include-email)'
-                sh 'docker push 836768678848.dkr.ecr.ap-south-1.amazonaws.com/app:latest'
-              script {
-                  if("${select_env}" == 'Docker'){
-                       sh 'ansible-playbook docker_playbook.yaml --syntax-check'
-                       sh 'ansible-playbook docker_playbook.yaml'
-                  }
-              }              
-          }
-      }
-      stage('K8S'){
-          steps{
-              script {
-                  if("${select_env}" == 'Kubernetes'){
-                    echo "to apply deployment and service to cluster"
-                    sh 'kubectl apply -f deployment.yaml'
-                    sh 'kubectl apply -f service.yaml'  
-                  }      
-          }
-      }
-    }
+       
+      
+      
+     
       
   }
 
