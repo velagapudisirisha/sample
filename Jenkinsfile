@@ -24,12 +24,17 @@ pipeline {
               sh 'docker push 952699092968.dkr.ecr.us-east-1.amazonaws.com/app:1'        
           }
       }
-       
-      
-      
+      stage('K8S'){
+          steps{
+              echo "To apply deployment and service files to EKS"
+              sh 'kubectl apply -f deployment.yaml'
+              sh 'kubectl apply -f service.yaml'  
+              sh 'kubectl get pods'
+              sh 'kubectl get services'                     
+          }
+      }         
      
-      
-  }
+    }
 
 
 
