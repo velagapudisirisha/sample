@@ -20,7 +20,8 @@ pipeline {
               sh 'docker -v'
               sh 'docker build -t app:1 .'     
               sh '$(aws ecr get-login --no-include-email)'
-              sh 'docker tag app:1 952699092968.dkr.ecr.us-east-1.amazonaws.com/app:1'         
+              sh 'docker tag app:1 952699092968.dkr.ecr.us-east-1.amazonaws.com/app:1' 
+              sh 'docker push 952699092968.dkr.ecr.us-east-1.amazonaws.com/app:1'        
           }
       }
        
