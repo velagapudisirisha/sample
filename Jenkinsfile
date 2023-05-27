@@ -7,12 +7,11 @@ pipeline {
               git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
           }
       }
-      stage('Terraform'){
+      stage('Maven'){
           steps{
-              echo "to login to AWS Provider"
-              sh 'aws s3 ls'
-              sh 'terraform init'
-              sh 'terraform apply -auto-approve'
+              echo "Maven Cleand and Build"
+              sh 'mvn clean'
+              sh 'mvn install'
           }
       }
        
