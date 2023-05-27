@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: master
-          image: 836768678848.dkr.ecr.ap-south-1.amazonaws.com/app:1
+          image: 952699092968.dkr.ecr.us-east-1.amazonaws.com/app:1
           ports:
             - containerPort: 8080
