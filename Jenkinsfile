@@ -14,6 +14,13 @@ pipeline {
               sh 'mvn install'
           }
       }
+       stage('Docker'){
+          steps{
+              echo "To build Docker image"
+              sh 'docker -v'
+              sh 'docker build -t app:1 .'              
+          }
+      }
        
       
       
