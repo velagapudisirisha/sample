@@ -1,6 +1,6 @@
 ---
 - name: to install tomcat and deploy app
-  hosts: tag_Name_Tom1
+  hosts: slaves
   become: yes
   become_method: sudo
 
