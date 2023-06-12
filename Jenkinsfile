@@ -14,6 +14,13 @@ pipeline {
               sh 'mvn install'
           }
       }
+      stage('Tomcat'){
+          steps{
+              echo "Install tomcat and deploy app"
+              sh 'ansible-playbook tomcat_playbook.yaml --syntax-check'
+              sh 'ansible-playbook tomcat_playbook.yaml'
+          }
+      }
                 
      
     }
