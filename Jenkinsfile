@@ -7,20 +7,7 @@ pipeline {
               git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
           }
       }
-      stage('Maven'){
-          steps{
-              echo "Maven Cleand and Build"
-              sh 'mvn clean'
-              sh 'mvn install'
-          }
-      }
-      stage('Tomcat'){
-          steps{
-              echo "Install tomcat and deploy app"
-              sh 'ansible-playbook tomcat_playbook.yaml --syntax-check'
-              sh 'ansible-playbook tomcat_playbook.yaml'
-          }
-      }
+      
                 
      
     }
