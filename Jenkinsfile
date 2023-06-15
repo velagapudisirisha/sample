@@ -11,7 +11,7 @@ pipeline {
           steps{
               echo "to execute tf file"
               sh 'terraform init'
-              sh 'terraform destroy -auto-approve'
+              sh 'terraform apply -auto-approve'
           }
       }
       
