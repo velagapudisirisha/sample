@@ -3,7 +3,10 @@
   hosts: docker_slaves
   become: yes
   become_method: sudo
+  become_user: root
   tasks:
+    - name: to login to aws ecr
+      shell: 
 
     - name: pull docker image
       shell: docker pull 540368896160.dkr.ecr.us-east-2.amazonaws.com/app1:latest
