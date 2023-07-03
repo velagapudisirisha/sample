@@ -6,7 +6,7 @@
   become_user: root
   tasks:
     - name: to login to aws ecr
-      shell: 
+      shell: $(aws ecr get-login --no-include-email)
 
     - name: pull docker image
       shell: docker pull 540368896160.dkr.ecr.us-east-2.amazonaws.com/app1:latest
