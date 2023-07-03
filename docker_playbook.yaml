@@ -6,7 +6,7 @@
   tasks:
 
     - name: pull docker image
-      shell: docker push 540368896160.dkr.ecr.us-east-2.amazonaws.com/app1:latest
+      shell: docker pull 540368896160.dkr.ecr.us-east-2.amazonaws.com/app1:latest
 
     - name: to start docker con
       shell: docker run --name con1 -itd -p 8080:8080 540368896160.dkr.ecr.us-east-2.amazonaws.com/app1:latest
