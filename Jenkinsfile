@@ -1,5 +1,9 @@
 pipeline {
   agent 'any'
+  tools {
+     jdk 'jdk1.8'
+     maven 'maven3'
+  }
   stages {
     stage('GIT'){
           steps{
@@ -7,11 +11,11 @@ pipeline {
               git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
           }
       }
-      stage('TF'){
+      stage('Maven'){
           steps{
-              echo "to execute tf file"
-              sh 'terraform init'
-              sh 'terraform apply -auto-approve'
+              echo "to clean and build App"
+              sh 'mvn clean'
+              sh 'mvn install'
           }
       }
       
