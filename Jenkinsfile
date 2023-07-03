@@ -35,6 +35,13 @@ pipeline {
               sh 'docker push 540368896160.dkr.ecr.us-east-2.amazonaws.com/app1:latest'
           }
       }
+      stage('Docker Eng'){
+          steps{
+              echo "to connect to DE and pull Img start con"
+              sh 'ansible-playbook docker_playbook.yaml --syntax-check'
+              sh 'ansible-playbook docker_playbook.yaml --syntax-check'
+          }
+      }
       
                 
      
