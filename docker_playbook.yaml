@@ -1,0 +1,11 @@
+---
+- name: docker purpose
+  hosts: docker_slaves
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: to login to aws ECR
+      shell: $(aws ecr get-login --no-include-email)
+
+    - name: pull docker image
+      shell: 
