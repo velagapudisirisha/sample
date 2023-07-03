@@ -39,7 +39,7 @@ pipeline {
           steps{
               echo "to connect to DE and pull Img start con"
               sh 'ansible-playbook docker_playbook.yaml --syntax-check'
-              sh 'ansible-playbook docker_playbook.yaml --syntax-check'
+              sh 'ansible-playbook docker_playbook.yaml'
           }
       }
       
