@@ -8,7 +8,7 @@ pipeline {
     stage('GIT'){
           steps{
               echo "to pull latst code"
-              git 'https://gitlab.com/jagarlamudirajesh34/kubernetes_we.git'
+              git 'https://github.com/velagapudisirisha/sample.git'
           }
       }
       stage('Maven'){
@@ -18,30 +18,7 @@ pipeline {
               sh 'mvn install'
           }
       }
-      stage('Tomcat'){
-          steps{
-              echo "to Install and start tomcat and deploy App"
-              sh 'ansible-playbook tomcat_playbook.yaml --syntax-check'
-              sh 'ansible-playbook tomcat_playbook.yaml'
-          }
-      }
-      stage('Docker'){
-          steps{
-              echo "to Build Docker image and push to AWS ECR"
-              sh 'docker build -t app:2 .'
-              sh 'docker images'
-              sh '$(aws ecr get-login --no-include-email)'
-              sh 'docker tag app:2 540368896160.dkr.ecr.us-east-2.amazonaws.com/app1:1'
-              sh 'docker push 540368896160.dkr.ecr.us-east-2.amazonaws.com/app1:1'
-          }
-      }
-      stage('Docker Eng'){
-          steps{
-              echo "to connect to DE and pull Img start con"
-              sh 'ansible-playbook docker_playbook.yaml --syntax-check'
-              sh 'ansible-playbook docker_playbook.yaml'
-          }
-      }
+    
       
                 
      
