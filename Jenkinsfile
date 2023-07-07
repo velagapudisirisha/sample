@@ -33,7 +33,14 @@ pipeline {
               sh 'docker tag app:1 335116981063.dkr.ecr.ap-south-1.amazonaws.com/app1:latest'
               sh 'docker push 335116981063.dkr.ecr.ap-south-1.amazonaws.com/app1:latest'
           }
-       }  
+       } 
+        stage('Docker Eng'){
+          steps{
+              echo "to connect to DE and pull Img start con"
+              sh 'ansible-playbook docker_playbook.yaml --syntax-check'
+              sh 'ansible-playbook docker_playbook.yaml'
+          }
+      }
       
                 
      
