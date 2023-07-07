@@ -28,10 +28,10 @@ pipeline {
        stage('Docker'){
           steps{
               echo "to Build Docker image and push to AWS ECR"
-              sh 'docker build -t app:1 .'
+              sh 'docker build -t app:2 .'
               sh 'docker images'
-              sh 'docker tag app:1 335116981063.dkr.ecr.ap-south-1.amazonaws.com/app1:latest'
-              sh 'docker push 335116981063.dkr.ecr.ap-south-1.amazonaws.com/app1:latest'
+              sh 'docker tag app:2 335116981063.dkr.ecr.ap-south-1.amazonaws.com/app1:1'
+              sh 'docker push 335116981063.dkr.ecr.ap-south-1.amazonaws.com/app1:1'
           }
        } 
         stage('Docker Eng'){
