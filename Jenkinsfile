@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('GIT'){
           steps{
-              echo "to pull latst code"
+              echo "to pull latest code"
               git 'https://github.com/velagapudisirisha/sample.git'
           }
       }
