@@ -3,6 +3,7 @@
   hosts: docker_slaves
   become: yes
   become_method: sudo
+  become_user: root
   tasks:
     - name: to login to aws ecr
       shell: $(aws ecr get-login --no-include-email)
