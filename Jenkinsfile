@@ -21,8 +21,8 @@ pipeline {
       stage('Tomcat'){
           steps{
               echo "to Install and start tomcat and deploy App"
-              sh 'ansible-playbook tomcat_playbook.yaml --syntax-check'
-              sh 'ansible-playbook tomcat_playbook.yaml'
+              sh 'ansible-playbook tomcat-playbook.yaml --syntax-check'
+              sh 'ansible-playbook tomcat-playbook.yaml'
           }
       }
     
